@@ -54,7 +54,7 @@ class RegistrationController extends AbstractController
 
 
             $mailer->send(
-                'no-reply#ecommerce.com',
+                'no-reply@ecommerce.com',
                 $user->getEmail(),
                 'Activation de votre compte sur le site e-commerce',
                 'register',
@@ -88,7 +88,7 @@ class RegistrationController extends AbstractController
                 $user->setIsVerified(true);
                 $em->flush($user);
                 $this->addFlash('success', 'Utilisateur activé');
-                return $this->redirectToRoute('app_main');
+                return $this->redirectToRoute('main');
             }
         }
         // Ici un problème se pose dans le token
